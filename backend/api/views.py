@@ -1,8 +1,6 @@
 from django.db.models import Sum
 from django.http import HttpResponse
 from django_filters.rest_framework import DjangoFilterBackend
-from recipes.models import (AmountIngredient, FavoriteRecipe, Ingredient,
-                            Recipe, ShoppingList, Tag)
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.generics import get_object_or_404
@@ -15,6 +13,8 @@ from .permissions import AuthorOrAdminOrSafeMethods
 from .serializers import (FavoriteRecipeSerializer, IngredientSerializer,
                           RecipeGetSerializer, RecipePostSerializer,
                           ShoppingListSerializer, TagSerializer)
+from recipes.models import (AmountIngredient, FavoriteRecipe, Ingredient,
+                            Recipe, ShoppingList, Tag)
 
 
 class IngredientViewSet(viewsets.ReadOnlyModelViewSet):

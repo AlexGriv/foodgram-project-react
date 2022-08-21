@@ -1,9 +1,9 @@
 from djoser.serializers import UserCreateSerializer, UserSerializer
-from recipes.models import Recipe
 from rest_framework import serializers
 from rest_framework.generics import get_object_or_404
 
 from .models import Follow, User
+from recipes.models import Recipe
 
 
 class CustomUserSerializer(UserSerializer):

@@ -1,9 +1,9 @@
-from recipes.models import (AmountIngredient, FavoriteRecipe, Ingredient,
-                            Recipe, ShoppingList, Tag)
 from rest_framework import serializers
-from users.serializers import CustomUserSerializer
 
 from .converters import Base64ImageField
+from recipes.models import (AmountIngredient, FavoriteRecipe, Ingredient,
+                            Recipe, ShoppingList, Tag)
+from users.serializers import CustomUserSerializer
 
 
 class IngredientSerializer(serializers.ModelSerializer):
