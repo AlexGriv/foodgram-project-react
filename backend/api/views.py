@@ -13,9 +13,9 @@ from .paginations import NewPagePagination
 from .permissions import AuthorOrAdminOrSafeMethods
 from .serializers import (FavoriteRecipeSerializer, IngredientSerializer,
                           RecipeGetSerializer, RecipePostSerializer,
-                          ShoppingListSerializer, TagSerializer)
+                          ShoppingCartSerializer, TagSerializer)
 from recipes.models import (AmountIngredient, FavoriteRecipe, Ingredient,
-                            Recipe, ShoppingList, Tag)
+                            Recipe, ShoppingCart, Tag)
 
 
 class IngredientViewSet(viewsets.ReadOnlyModelViewSet):
@@ -23,6 +23,7 @@ class IngredientViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = IngredientSerializer
     filter_backends = (IngredientFilter,)
     search_fields = ('^name',)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
 
 
 class TagViewSet(viewsets.ReadOnlyModelViewSet):
@@ -80,8 +81,8 @@ class RecipeViewSet(viewsets.ModelViewSet):
     def shopping_cart(self, request, pk):
         return self.post_or_delete(
             request,
-            ShoppingList,
-            ShoppingListSerializer,
+            ShoppingCart,
+            ShoppingCartSerializer,
             pk
         )
 

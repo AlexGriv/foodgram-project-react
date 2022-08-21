@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from .converters import Base64ImageField
 from recipes.models import (AmountIngredient, FavoriteRecipe, Ingredient,
-                            Recipe, ShoppingList, Tag)
+                            Recipe, ShoppingCart, Tag)
 from users.serializers import CustomUserSerializer
 
 
@@ -78,7 +78,7 @@ class RecipeGetSerializer(serializers.ModelSerializer):
     def get_is_in_shopping_cart(self, recipe):
         if self.context.get('request').user.is_anonymous:
             return False
-        return ShoppingList.objects.filter(
+        return ShoppingCart.objects.filter(
             user=self.context.get('request').user,
             recipe=recipe
         ).exists()
@@ -176,13 +176,13 @@ class RecipeViewSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'image', 'cooking_time')
 
 
-class ShoppingListSerializer(serializers.ModelSerializer):
+class ShoppingCartSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ShoppingList
+        model = ShoppingCart
         fields = ('user', 'recipe')
 
     def validate(self, data):
-        if ShoppingList.objects.filter(
+        if ShoppingCart.objects.filter(
                 user=self.context['request'].user,
                 recipe=data['recipe']
         ):
