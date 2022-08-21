@@ -9,8 +9,8 @@ services:
       - ./.env
 
   backend:
-    image: kefear/foodgram:latest
-    #build: ../backend
+    # image: kefear/foodgram:latest
+    build: ../backend
     restart: always
     volumes:
       - static_value:/app/static/
@@ -21,8 +21,8 @@ services:
       - ./.env
 
   frontend:
-    image: kefear/foodgram_frontend
-    #build: ../frontend
+    # image: kefear/foodgram_frontend
+    build: ../frontend
     volumes:
       - ../frontend/:/app/result_build/
     depends_on:
