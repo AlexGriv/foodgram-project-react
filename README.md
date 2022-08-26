@@ -1,4 +1,4 @@
-[![Foodgram Actions Status](https://github.com/AlexGriv/yamdb_final/workflows/CI/badge.svg)](https://github.com/AlexGriv/yamdb_final/actions)
+[![Foodgram Actions Status](https://github.com/AlexGriv/foodgram-project-react/workflows/Foodgram/badge.svg)](https://github.com/AlexGriv/foodgram-project-react/actions)
 # Проект Foodgram.
 
 ## Технологии
@@ -8,7 +8,12 @@
 * django-filter
 * Docker
 
-## Как запустить проект
+## Проверка:
+```
+зайти на http://51.250.22.224/ или http://51.250.22.224/admin/
+```
+
+## Как запустить проект локально
 Клонировать репозиторий:
 ```
 https://github.com/AlexGriv/foodgram-project-react.git
@@ -28,10 +33,7 @@ docker-compose exec web python manage.py migrate
 docker-compose exec web python manage.py createsuperuser
 docker-compose exec web python manage.py collectstatic --no-input
 ```
-Проверка:
-```
-зайти на http://localhost/admin/
-```
+
 Шаблон наполнения env-файла:
 ```
 DB_ENGINE=django.db.backends.postgresql # указываем, что работаем с postgresql

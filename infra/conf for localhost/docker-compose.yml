@@ -9,7 +9,7 @@ services:
       - ./.env
 
   backend:
-    image: kefear/foodgram:latest
+    build: ../backend
     restart: always
     volumes:
       - static_value:/app/static/
@@ -20,7 +20,7 @@ services:
       - ./.env
 
   frontend:
-    image: kefear/foodgram_frontend:latest
+    build: ../frontend
 
     volumes:
       - ../frontend/:/app/result_build/
