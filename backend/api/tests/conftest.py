@@ -1,6 +1,6 @@
 import pytest
 
-from recipes.models import Ingredient, Recipe, AmountIngredient, Tag
+from recipes.models import AmountIngredient, Ingredient, Recipe, Tag
 from users.models import User
 
 
