@@ -16,7 +16,7 @@
 testovich4777999@yandex.ru painkiller_09
 ```
 Тестовый админ:
-testadmin4777999yandex.ru painkiller_09
+testadmin4777999@yandex.ru painkiller_09
 ```
 
 ## Как запустить проект локально
