@@ -1,5 +1,6 @@
 from django.core.validators import MinValueValidator
 from django.db import models
+from django.utils.html import format_html
 
 from users.models import User
 
@@ -12,6 +13,7 @@ class Tag(models.Model):
         max_length=7,
         null=True,
         verbose_name='Цвет в HEX',
+        default='#ffffff'
     )
     slug = models.SlugField(
         max_length=200,
@@ -115,7 +117,7 @@ class AmountIngredient(models.Model):
         verbose_name_plural = 'Количество ингредиентов рецепта'
         constraints = (
             models.UniqueConstraint(
-                fields=['ingredient', 'recipe'],
+                fields=('ingredient', 'recipe'),
                 name='unique_ingredient'
             ),
         )
@@ -140,7 +142,7 @@ class ShoppingCart(models.Model):
         verbose_name_plural = 'Списки покупок'
         constraints = (
             models.UniqueConstraint(
-                fields=['user', 'recipe'],
+                fields=('user', 'recipe'),
                 name='unique_shopping_cart'
             ),
         )
@@ -168,7 +170,7 @@ class FavoriteRecipe(models.Model):
         verbose_name_plural = 'Избранные'
         constraints = (
             models.UniqueConstraint(
-                fields=['user', 'recipe'],
+                fields=('user', 'recipe'),
                 name='unique_favorite'
             ),
         )

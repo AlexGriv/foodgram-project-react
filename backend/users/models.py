@@ -14,16 +14,21 @@ class User(AbstractUser):
                         ' буквы/цифры(с учетом регистра),'
                         ' а также символы: .@+-',
             ),
-        ]
+        ],
+        verbose_name='Никнейм'
     )
-    email = models.EmailField(max_length=254, unique=True)
-    first_name = models.CharField(max_length=150)
-    last_name = models.CharField(max_length=150)
+    email = models.EmailField(
+        max_length=254,
+        unique=True,
+        verbose_name='Почтовый ящик'
+    )
+    first_name = models.CharField(max_length=150, verbose_name='Имя')
+    last_name = models.CharField(max_length=150, verbose_name='Фамилия')
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
+    REQUIRED_FIELDS = ('username', 'first_name', 'last_name')
 
     class Meta:
-        ordering = ['username']
+        ordering = ('username',)
 
     def __str__(self):
         return self.username
@@ -40,7 +45,7 @@ class Follow(models.Model):
     class Meta:
         constraints = (
             models.UniqueConstraint(
-                fields=['user', 'following'],
+                fields=('user', 'following'),
                 name='follow'
             ),
         )

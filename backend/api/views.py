@@ -22,6 +22,7 @@ class IngredientViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Ingredient.objects.all().order_by('name')
     serializer_class = IngredientSerializer
     filter_backends = (IngredientFilter,)
+    pagination_class = None
     search_fields = ('^name',)
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
@@ -29,6 +30,7 @@ class IngredientViewSet(viewsets.ReadOnlyModelViewSet):
 class TagViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Tag.objects.all().order_by('id')
     serializer_class = TagSerializer
+    pagination_class = None
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
 
@@ -107,6 +109,6 @@ class RecipeViewSet(viewsets.ModelViewSet):
             )
         response = HttpResponse(shopping_cart, content_type='text')
         response['Content-Disposition'] = (
-            'attachment;filename=shopping_cart.pdf'
+            'attachment;filename=shopping_cart.txt'
         )
         return response

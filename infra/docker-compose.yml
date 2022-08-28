@@ -21,7 +21,6 @@ services:
 
   frontend:
     image: kefear/foodgram_frontend:latest
-
     volumes:
       - ../frontend/:/app/result_build/
     depends_on:

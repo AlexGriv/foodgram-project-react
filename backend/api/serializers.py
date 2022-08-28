@@ -57,8 +57,16 @@ class RecipeGetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recipe
         fields = (
-            'id', 'tags', 'author', 'ingredients', 'is_favorited',
-            'is_in_shopping_cart', 'name', 'image', 'text', 'cooking_time'
+            'id',
+            'tags',
+            'author',
+            'ingredients',
+            'is_favorited',
+            'is_in_shopping_cart',
+            'name',
+            'image',
+            'text',
+            'cooking_time'
         )
 
     def get_ingredients(self, recipe):
@@ -85,7 +93,7 @@ class RecipeGetSerializer(serializers.ModelSerializer):
 
     def to_representation(self, obj):
         data = super().to_representation(obj)
-        data["image"] = obj.image.url
+        data['image'] = obj.image.url
         return data
 
 
@@ -101,8 +109,16 @@ class RecipePostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Recipe
-        fields = ('id', 'author', 'ingredients', 'tags',
-                  'image', 'name', 'text', 'cooking_time')
+        fields = (
+            'id',
+            'author',
+            'ingredients',
+            'tags',
+            'image',
+            'name',
+            'text',
+            'cooking_time'
+        )
 
     @staticmethod
     def create_ingredients_tags(recipe, ingredients, tags):
@@ -147,7 +163,7 @@ class RecipePostSerializer(serializers.ModelSerializer):
 
     def to_representation(self, obj):
         data = super().to_representation(obj)
-        data["image"] = obj.image.url
+        data['image'] = obj.image.url
         return data
 
 

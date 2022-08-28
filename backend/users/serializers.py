@@ -12,8 +12,12 @@ class CustomUserSerializer(UserSerializer):
     class Meta:
         model = User
         fields = (
-            'email', 'id', 'username', 'first_name',
-            'last_name', 'is_subscribed'
+            'email',
+            'id',
+            'username',
+            'first_name',
+            'last_name',
+            'is_subscribed'
         )
 
     def get_is_subscribed(self, following):
@@ -29,7 +33,11 @@ class CustomUserCreateSerializer(UserCreateSerializer):
     class Meta:
         model = User
         fields = (
-            'email', 'username', 'first_name', 'last_name', 'password'
+            'email',
+            'username',
+            'first_name',
+            'last_name',
+            'password'
         )
 
 
@@ -41,8 +49,14 @@ class FollowListSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = (
-            'email', 'id', 'username', 'first_name', 'last_name',
-            'is_subscribed', 'recipes', 'recipes_count'
+            'email',
+            'id',
+            'username',
+            'first_name',
+            'last_name',
+            'is_subscribed',
+            'recipes',
+            'recipes_count'
         )
 
     def get_recipes_count(self, following):
@@ -71,7 +85,12 @@ class FollowListSerializer(serializers.ModelSerializer):
 class RecipeFollowingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recipe
-        fields = ('id', 'name', 'image', 'cooking_time')
+        fields = (
+            'id',
+            'name',
+            'image',
+            'cooking_time'
+        )
 
 
 class FollowSerializer(serializers.ModelSerializer):
