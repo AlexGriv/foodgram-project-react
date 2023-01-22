@@ -2,7 +2,7 @@
 # Проект Foodgram.
 
 ## Технологии
-* Python
+* Python 3.8
 * Django
 * Django REST Framework
 * django-filter
