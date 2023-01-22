@@ -50,3 +50,6 @@ DB_HOST=db # название сервиса (контейнера)
 DB_PORT=5432 # порт для подключения к БД
 SECRET_KEY = ''
 ALLOWED_HOSTS=example.com
+
+## Автор
+AlexGriv https://github.com/AlexGriv
